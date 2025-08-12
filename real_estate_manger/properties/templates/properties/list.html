@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Моя недвижимость</h1>
+<a href="{% url 'add_property' %}">Добавить объект</a>
+
+<ul>
+  {% for property in properties %}
+  <li>
+    {{ property.address }} - {{ property.get_status_display }}
+    (Аренда: {{ property.monthly_rent }} ₽)
+  </li>
+  {% endfor %}
+</ul>
+{% endblock %}
